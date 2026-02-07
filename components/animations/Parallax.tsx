@@ -7,9 +7,10 @@ interface ParallaxProps {
   children: React.ReactNode;
   className?: string;
   speed?: number;
+  style?: React.CSSProperties;
 }
 
-export function Parallax({ children, className, speed = 0.5 }: ParallaxProps) {
+export function Parallax({ children, className, speed = 0.5, style }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -20,7 +21,7 @@ export function Parallax({ children, className, speed = 0.5 }: ParallaxProps) {
   const y = useSpring(rawY, { stiffness: 100, damping: 30 });
 
   return (
-    <motion.div ref={ref} style={{ y }} className={className}>
+    <motion.div ref={ref} style={{ y, ...style }} className={className}>
       {children}
     </motion.div>
   );

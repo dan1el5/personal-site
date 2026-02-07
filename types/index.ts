@@ -1,9 +1,9 @@
 export interface Project {
   title: string;
   description: string;
+  role: string;
+  impact: string[];
   tech: string[];
-  url: string;
-  github?: string;
   featured?: boolean;
 }
 
@@ -20,7 +20,6 @@ export interface SkillCategory {
 export interface SiteConfig {
   name: string;
   role: string;
-  email: string;
   bio: string[];
   projects: Project[];
   skills: SkillCategory[];

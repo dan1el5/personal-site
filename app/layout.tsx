@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
+import { CustomCursor } from "@/components/layout/CustomCursor";
 import { Nav } from "@/components/layout/Nav";
+import { PageLoader } from "@/components/layout/PageLoader";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
@@ -24,9 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={robotoMono.variable}>
       <body className="font-mono">
-        <ScrollProgress />
-        <Nav />
-        {children}
+        <CustomCursor />
+        <PageLoader>
+          <ScrollProgress />
+          <Nav />
+          {children}
+        </PageLoader>
       </body>
     </html>
   );

@@ -5,7 +5,8 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { MagneticButton } from "@/components/animations/MagneticButton";
+import { SectionAccents } from "@/components/animations/SectionAccents";
+import { DotGrid } from "@/components/animations/DotGrid";
 import { siteConfig } from "@/lib/config";
 import type { Project } from "@/types";
 
@@ -14,16 +15,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <FadeIn delay={index * 0.1} className={isFeatured ? "md:col-span-2" : ""}>
-      <motion.a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block border border-border p-6 md:p-8 hover:border-fg transition-colors duration-500 relative overflow-hidden"
+      <motion.div
+        className="cursor-hover group relative border border-border p-6 md:p-8 hover:border-fg transition-colors duration-500 h-full overflow-hidden"
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3 }}
       >
         {/* Hover fill */}
-        <div className="absolute inset-0 bg-fg origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+        <div className="absolute inset-0 bg-fg origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
 
         <div className="relative z-10 group-hover:text-bg transition-colors duration-500">
           {isFeatured && (
@@ -32,18 +30,27 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </p>
           )}
 
-          <div className="flex items-start justify-between mb-4">
-            <h3 className="text-lg md:text-xl font-light tracking-tight">
-              {project.title}
-            </h3>
-            <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              &rarr;
-            </span>
-          </div>
+          <h3 className="text-lg md:text-xl font-light tracking-tight mb-2">
+            {project.title}
+          </h3>
+
+          <p className="text-[10px] tracking-[0.2em] uppercase text-muted-light group-hover:text-bg/50 mb-4 transition-colors duration-500">
+            {project.role}
+          </p>
 
           <p className="text-xs leading-relaxed text-muted group-hover:text-bg/70 mb-6 max-w-lg transition-colors duration-500">
             {project.description}
           </p>
+
+          {/* Impact metrics */}
+          <ul className="space-y-2 mb-6">
+            {project.impact.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs text-muted group-hover:text-bg/70 transition-colors duration-500">
+                <span className="w-1 h-1 rounded-full bg-fg group-hover:bg-bg/70 mt-1.5 shrink-0 transition-colors duration-500" />
+                <span className="leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
@@ -56,7 +63,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
           </div>
         </div>
-      </motion.a>
+      </motion.div>
     </FadeIn>
   );
 }
@@ -121,16 +128,31 @@ function SkillsSection() {
 
 export function Dev() {
   return (
-    <Container as="section" id="dev" className="py-32 md:py-48">
-      <SectionHeading label="02" title="Dev" />
+    <section id="dev" className="relative py-32 md:py-48 overflow-hidden">
+      <DotGrid />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {siteConfig.projects.map((project, i) => (
-          <ProjectCard key={project.title} project={project} index={i} />
-        ))}
-      </div>
+      <SectionAccents
+        accents={[
+          { type: "ring", size: 140, top: "5%", left: "3%", speed: 0.2 },
+          { type: "square", size: 30, top: "30%", right: "4%", speed: -0.15, rotate: 15 },
+          { type: "dot", size: 10, top: "55%", left: "2%", speed: 0.3 },
+          { type: "line", size: 100, top: "75%", right: "6%", speed: 0.2, rotate: 40 },
+          { type: "cross", size: 18, bottom: "10%", left: "5%", speed: -0.25 },
+          { type: "ring", size: 60, bottom: "20%", right: "3%", speed: 0.15 },
+        ]}
+      />
 
-      <SkillsSection />
-    </Container>
+      <Container className="relative">
+        <SectionHeading label="02" title="Dev" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {siteConfig.projects.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i} />
+          ))}
+        </div>
+
+        <SkillsSection />
+      </Container>
+    </section>
   );
 }

@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { SectionAccents } from "@/components/animations/SectionAccents";
 import { timeAgo, formatNumber } from "@/lib/utils";
 import type { GitHubRepo, GitHubEvent, LanguageBreakdown } from "@/types";
 
@@ -228,8 +229,19 @@ export function GitHubActivity() {
   })();
 
   return (
-    <Container as="section" id="github" className="py-32 md:py-48">
-      <SectionHeading label="03" title="GitHub" />
+    <section id="github" className="relative py-32 md:py-48 overflow-hidden bg-[#f3f3f3]">
+
+      <SectionAccents
+        accents={[
+          { type: "ring", size: 120, top: "8%", right: "4%", speed: 0.25 },
+          { type: "line", size: 90, top: "40%", left: "3%", speed: -0.2, rotate: 50 },
+          { type: "dot", size: 6, bottom: "25%", right: "6%", speed: 0.3 },
+          { type: "square", size: 24, bottom: "15%", left: "4%", speed: 0.15, rotate: 20 },
+        ]}
+      />
+
+      <Container className="relative">
+        <SectionHeading label="03" title="GitHub" />
 
       {error && !loading && repos.length === 0 && (
         <FadeIn>
@@ -260,6 +272,7 @@ export function GitHubActivity() {
           <ActivityFeed events={events} />
         </div>
       )}
-    </Container>
+      </Container>
+    </section>
   );
 }
