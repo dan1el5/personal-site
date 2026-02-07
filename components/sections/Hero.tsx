@@ -28,7 +28,10 @@ function DotGridBackground() {
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
 
-    if (canvas.width !== rect.width * dpr || canvas.height !== rect.height * dpr) {
+    if (
+      canvas.width !== rect.width * dpr ||
+      canvas.height !== rect.height * dpr
+    ) {
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
     }
@@ -45,9 +48,11 @@ function DotGridBackground() {
 
     // Two traveling wave centers that orbit the canvas
     const wave1x = rect.width * 0.5 + Math.cos(time * 0.3) * rect.width * 0.4;
-    const wave1y = rect.height * 0.5 + Math.sin(time * 0.4) * rect.height * 0.35;
+    const wave1y =
+      rect.height * 0.5 + Math.sin(time * 0.4) * rect.height * 0.35;
     const wave2x = rect.width * 0.5 + Math.sin(time * 0.25) * rect.width * 0.35;
-    const wave2y = rect.height * 0.5 + Math.cos(time * 0.35) * rect.height * 0.3;
+    const wave2y =
+      rect.height * 0.5 + Math.cos(time * 0.35) * rect.height * 0.3;
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
@@ -58,8 +63,7 @@ function DotGridBackground() {
         const d1 = Math.sqrt((x - wave1x) ** 2 + (y - wave1y) ** 2);
         const d2 = Math.sqrt((x - wave2x) ** 2 + (y - wave2y) ** 2);
         const waveInfluence =
-          Math.max(0, 1 - d1 / 250) * 0.5 +
-          Math.max(0, 1 - d2 / 200) * 0.4;
+          Math.max(0, 1 - d1 / 250) * 0.5 + Math.max(0, 1 - d2 / 200) * 0.4;
 
         // Cursor influence
         const dx = mx - canvasRect.left - x;
@@ -98,6 +102,7 @@ function DotGridBackground() {
   return (
     <motion.canvas
       ref={canvasRef}
+      aria-hidden="true"
       className="absolute inset-0 w-full h-full pointer-events-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -111,19 +116,16 @@ function DotGridBackground() {
  */
 function FloatingShapes() {
   const shapes = [
-    // Right side (desktop + mobile)
-    { type: "ring", size: 180, x: "75%", y: "20%", delay: 0.6, duration: 30, mobileSize: 100, mobileX: "70%", mobileY: "10%" },
-    { type: "ring", size: 100, x: "85%", y: "65%", delay: 1.0, duration: 22, mobileSize: 60, mobileX: "80%", mobileY: "75%" },
-    { type: "circle", size: 80, x: "70%", y: "50%", delay: 0.8, duration: 25, mobileSize: 40, mobileX: "75%", mobileY: "45%" },
-    // Left side — adds visual weight
-    { type: "ring", size: 60, x: "5%", y: "70%", delay: 1.2, duration: 26, mobileSize: 40, mobileX: "8%", mobileY: "80%" },
-    { type: "circle", size: 30, x: "15%", y: "20%", delay: 1.4, duration: 20, mobileSize: 20, mobileX: "12%", mobileY: "15%" },
-    { type: "line", size: 120, x: "8%", y: "45%", delay: 1.0, duration: 18, rotate: 60, mobileSize: 70, mobileX: "5%", mobileY: "50%" },
-    // Center/scattered
-    { type: "square", size: 35, x: "45%", y: "80%", delay: 1.3, duration: 28, mobileSize: 25, mobileX: "50%", mobileY: "85%" },
-    { type: "line", size: 80, x: "55%", y: "15%", delay: 1.5, duration: 24, rotate: -25, mobileSize: 50, mobileX: "60%", mobileY: "12%" },
-    { type: "cross", size: 20, x: "25%", y: "35%", delay: 1.1, duration: 22, mobileSize: 14, mobileX: "20%", mobileY: "30%" },
-    { type: "cross", size: 16, x: "88%", y: "35%", delay: 1.6, duration: 20, mobileSize: 12, mobileX: "85%", mobileY: "25%" },
+    { type: "ring", size: 180, x: "75%", y: "20%", delay: 0.6, duration: 30 },
+    { type: "ring", size: 100, x: "85%", y: "65%", delay: 1.0, duration: 22 },
+    { type: "circle", size: 80, x: "70%", y: "50%", delay: 0.8, duration: 25 },
+    { type: "ring", size: 60, x: "5%", y: "70%", delay: 1.2, duration: 26 },
+    { type: "circle", size: 30, x: "15%", y: "20%", delay: 1.4, duration: 20 },
+    { type: "line", size: 120, x: "8%", y: "45%", delay: 1.0, duration: 18, rotate: 60 },
+    { type: "square", size: 35, x: "45%", y: "80%", delay: 1.3, duration: 28 },
+    { type: "line", size: 80, x: "55%", y: "15%", delay: 1.5, duration: 24, rotate: -25 },
+    { type: "cross", size: 20, x: "25%", y: "35%", delay: 1.1, duration: 22 },
+    { type: "cross", size: 16, x: "88%", y: "35%", delay: 1.6, duration: 20 },
   ];
 
   return (
@@ -139,16 +141,30 @@ function FloatingShapes() {
             scale: 1,
             y: [0, -12, 0, 8, 0],
             x: [0, 6, 0, -5, 0],
-            rotate: shape.type === "square" ? [0, 90, 180, 270, 360] : undefined,
+            rotate:
+              shape.type === "square" ? [0, 90, 180, 270, 360] : undefined,
           }}
           transition={{
             opacity: { duration: 1, delay: shape.delay },
             scale: { duration: 1, delay: shape.delay },
-            y: { duration: shape.duration, repeat: Infinity, ease: "easeInOut" },
-            x: { duration: shape.duration * 1.3, repeat: Infinity, ease: "easeInOut" },
-            rotate: shape.type === "square"
-              ? { duration: shape.duration * 2, repeat: Infinity, ease: "linear" }
-              : undefined,
+            y: {
+              duration: shape.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+            x: {
+              duration: shape.duration * 1.3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+            rotate:
+              shape.type === "square"
+                ? {
+                    duration: shape.duration * 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }
+                : undefined,
           }}
         >
           {shape.type === "circle" && (
@@ -180,7 +196,10 @@ function FloatingShapes() {
             />
           )}
           {shape.type === "cross" && (
-            <div className="relative" style={{ width: shape.size, height: shape.size }}>
+            <div
+              className="relative"
+              style={{ width: shape.size, height: shape.size }}
+            >
               <div
                 className="absolute top-1/2 left-0 w-full bg-fg/20"
                 style={{ height: 1, transform: "translateY(-50%)" }}
@@ -228,7 +247,10 @@ export function Hero() {
   const nameChars = siteConfig.name.split("");
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      ref={ref}
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
       {/* Background layers */}
       <DotGridBackground />
       <FloatingShapes />
@@ -250,7 +272,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Portfolio
+            Design + Development
           </motion.p>
 
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter leading-[0.9] mb-6">

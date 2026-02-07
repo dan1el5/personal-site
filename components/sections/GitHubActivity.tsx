@@ -229,49 +229,72 @@ export function GitHubActivity() {
   })();
 
   return (
-    <section id="github" className="relative py-32 md:py-48 overflow-hidden bg-[#f3f3f3]">
-
+    <section
+      id="github"
+      className="relative py-32 md:py-48 overflow-hidden bg-[#f3f3f3]"
+    >
       <SectionAccents
         accents={[
           { type: "ring", size: 120, top: "8%", right: "4%", speed: 0.25 },
-          { type: "line", size: 90, top: "40%", left: "3%", speed: -0.2, rotate: 50 },
+          {
+            type: "line",
+            size: 90,
+            top: "40%",
+            left: "3%",
+            speed: -0.2,
+            rotate: 50,
+          },
           { type: "dot", size: 6, bottom: "25%", right: "6%", speed: 0.3 },
-          { type: "square", size: 24, bottom: "15%", left: "4%", speed: 0.15, rotate: 20 },
+          {
+            type: "square",
+            size: 24,
+            bottom: "15%",
+            left: "4%",
+            speed: 0.15,
+            rotate: 20,
+          },
         ]}
       />
 
       <Container className="relative">
         <SectionHeading label="03" title="GitHub" />
 
-      {error && !loading && repos.length === 0 && (
         <FadeIn>
-          <div className="border border-border p-8 text-center">
-            <p className="text-sm text-muted">{error}</p>
-            <p className="text-xs text-muted-light mt-2">
-              Check back later or visit my GitHub profile directly.
-            </p>
-          </div>
+          <p className="text-xs text-muted -mt-8 mb-12 tracking-wide">
+            Public repositories — not much to see here, the real stuff was made
+            for other people (prev section).
+          </p>
         </FadeIn>
-      )}
 
-      {/* Repo grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
-        {loading
-          ? Array.from({ length: 6 }).map((_, i) => <RepoSkeleton key={i} />)
-          : repos
-              .slice(0, 6)
-              .map((repo, i) => (
-                <RepoCard key={repo.id} repo={repo} index={i} />
-              ))}
-      </div>
+        {error && !loading && repos.length === 0 && (
+          <FadeIn>
+            <div className="border border-border p-8 text-center">
+              <p className="text-sm text-muted">{error}</p>
+              <p className="text-xs text-muted-light mt-2">
+                Check back later or visit my GitHub profile directly.
+              </p>
+            </div>
+          </FadeIn>
+        )}
 
-      {/* Bottom row: languages + activity */}
-      {!loading && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-          <LanguageBar languages={languages} />
-          <ActivityFeed events={events} />
+        {/* Repo grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+          {loading
+            ? Array.from({ length: 6 }).map((_, i) => <RepoSkeleton key={i} />)
+            : repos
+                .slice(0, 6)
+                .map((repo, i) => (
+                  <RepoCard key={repo.id} repo={repo} index={i} />
+                ))}
         </div>
-      )}
+
+        {/* Bottom row: languages + activity */}
+        {!loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+            <LanguageBar languages={languages} />
+            <ActivityFeed events={events} />
+          </div>
+        )}
       </Container>
     </section>
   );

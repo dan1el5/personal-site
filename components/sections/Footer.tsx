@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { siteConfig } from "@/lib/config";
@@ -17,25 +18,26 @@ export function Footer() {
               <p className="text-sm font-medium tracking-wider mb-2">
                 {siteConfig.name}
               </p>
-              <p className="text-xs text-muted">
-                {siteConfig.role}
-              </p>
+              <p className="text-xs text-muted">{siteConfig.role}</p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <div className="flex items-center gap-6">
               {siteConfig.socials.map((social) => (
-                <a
+                <motion.a
                   key={social.label}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative text-xs tracking-widest uppercase text-muted hover:text-fg transition-colors duration-300"
+                  className="cursor-hover text-muted hover:text-fg transition-colors duration-300"
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  {social.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-fg transition-all duration-300 group-hover:w-full" />
-                </a>
+                  <Github size={20} />
+                </motion.a>
               ))}
             </div>
           </FadeIn>
@@ -51,11 +53,12 @@ export function Footer() {
                 className="inline-block"
               >
                 &copy; {currentYear}
-              </motion.span>
-              {" "}{siteConfig.name}
+              </motion.span>{" "}
+              DG
             </p>
             <p className="text-[10px] tracking-wider text-muted-light">
-              Built with Next.js, TypeScript &amp; Tailwind
+              Built with Next.js, TypeScript &amp; Tailwind &mdash; GitHub data
+              via Edge API Routes &amp; ISR
             </p>
           </div>
         </FadeIn>

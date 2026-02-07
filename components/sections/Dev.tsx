@@ -38,7 +38,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.role}
           </p>
 
-          <p className="text-xs leading-relaxed text-muted group-hover:text-bg/70 mb-6 max-w-lg transition-colors duration-500">
+          <p className="text-xs leading-relaxed text-muted group-hover:text-bg/70 mb-6 transition-colors duration-500">
             {project.description}
           </p>
 
@@ -85,10 +85,7 @@ function SkillsSection() {
                 {category.name}
               </h3>
               <ul className="space-y-3">
-                {category.skills.map((skill, skillIndex) => {
-                  const isHighlighted =
-                    skill === "TypeScript" || skill === "React";
-                  return (
+                {category.skills.map((skill, skillIndex) => (
                     <motion.li
                       key={skill}
                       className="group flex items-center gap-3 text-sm text-muted"
@@ -100,23 +97,12 @@ function SkillsSection() {
                         duration: 0.4,
                       }}
                     >
-                      <span
-                        className={`w-1.5 h-1.5 rounded-full transition-transform duration-300 group-hover:scale-150 ${
-                          isHighlighted ? "bg-fg" : "bg-border"
-                        }`}
-                      />
-                      <span
-                        className={
-                          isHighlighted
-                            ? "text-fg font-medium"
-                            : "group-hover:text-fg transition-colors duration-300"
-                        }
-                      >
+                      <span className="w-1.5 h-1.5 rounded-full bg-border transition-transform duration-300 group-hover:scale-150" />
+                      <span className="group-hover:text-fg transition-colors duration-300">
                         {skill}
                       </span>
                     </motion.li>
-                  );
-                })}
+                ))}
               </ul>
             </div>
           </FadeIn>

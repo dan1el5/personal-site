@@ -17,10 +17,16 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface Highlight {
+  value: string;
+  label: string;
+}
+
 export interface SiteConfig {
   name: string;
   role: string;
   bio: string[];
+  highlights: Highlight[];
   projects: Project[];
   skills: SkillCategory[];
   socials: SocialLink[];
