@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #fafafa;
+  --color-fg: #0a0a0a;
+  --color-muted: #6b7280;
+  --color-muted-light: #9ca3af;
+  --color-border: #d1d5db;
+  --color-surface: #ffffff;
+
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  transform-origin: left;
+  will-change: transform;
+}
