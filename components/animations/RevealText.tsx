@@ -44,7 +44,7 @@ export function RevealText({
         className="inline"
       >
         {words.map((word, i) => (
-          <span key={i} className="inline-block overflow-hidden">
+          <span key={i} className="inline-block overflow-clip" style={{ overflowClipMargin: "0.15em" }}>
             <motion.span
               className="inline-block"
               variants={{
