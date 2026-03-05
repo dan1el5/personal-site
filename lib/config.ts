@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
       title: "Cintrex",
       description:
         "An operations dashboard for a property management company. Replaced scattered email and spreadsheet workflows with a structured ticketing system, role-based access, audit trails, and real-time reporting.",
-      role: "Full Stack Developer",
+      role: "CRM",
       impact: [
         "Designed a work-order/ticketing workflow with submission, assignment, and resolution tied to SLAs",
         "Implemented RBAC, access reviews, and an activity trail to improve traceability and compliance",
@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
       title: "Fogain",
       description:
         "A unified tool suite for an accounting firm. Consolidated 7+ siloed internal tools into one environment with shared access controls, reporting dashboards, and a tax-report generator.",
-      role: "Full Stack Developer",
+      role: "CRM",
       impact: [
         "Centralized 7+ internal tools into a shared environment with unified access controls",
         "Built reporting dashboards and a tax-report generator to reduce manual workflows",
@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
       title: "OtomAI",
       description:
         "A chat-based financial assistant powered by OpenAI. Natural-language interface for report generation, data interpretation, and financial summarization, tailored to domain-specific accounting workflows.",
-      role: "Full Stack Developer",
+      role: "LLM Interface",
       impact: [
         "Used OpenAI's API with tailored prompts to automate report generation and data interpretation",
         "Built a conversational UI for natural-language interaction with financial data",
@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
       title: "QueueTrack",
       description:
         "A React Native app for university students to check real-time wait times at nearby bars. Crowdsourced reporting, live queue data, and location-aware listings.",
-      role: "Mobile Developer",
+      role: "Mobile App",
       impact: [
         "Built an IOS app with React Native for real-time bar line tracking",
         "Implemented crowdsourced reporting so users could share and view live wait times",
@@ -68,7 +68,7 @@ export const siteConfig: SiteConfig = {
       title: "Prism",
       description:
         "Enter a question and watch an AI agent explore it in real-time. The agent decomposes, researches, connects, and synthesizes, streaming its reasoning as an interactive knowledge graph you can see being built.",
-      role: "Designer & Developer",
+      role: "Agentic Visualization",
       impact: [
         "Built a multi-stage AI agent pipeline with real-time SSE streaming and progressive UI rendering",
         "Interactive knowledge graph with lens-colored nodes, built with React Flow and dagre layout",
@@ -83,7 +83,7 @@ export const siteConfig: SiteConfig = {
       title: "This Site",
       description:
         "The site you're on. Built from scratch with Next.js, featuring an interactive dot grid, scroll-driven parallax, spring-physics cursor, and full accessibility support.",
-      role: "Designer & Developer",
+      role: "Design & Development",
       impact: [
         "Interactive hero with auto-animating wave pulses and cursor-reactive dot grid",
         "Full accessibility support including prefers-reduced-motion and keyboard navigation",
