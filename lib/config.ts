@@ -2,32 +2,18 @@ import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
   name: "<DG/>",
-  role: "Full Stack Developer & UI Engineer",
+  role: "Product Designer & Full Stack Developer",
   bio: [
     "I'm a frontend-leaning full-stack developer based in Toronto who thrives in fast-moving, collaborative environments. I partner closely with designers, product managers, and backend engineers to turn ambiguous requirements into polished, scalable products across web and mobile.",
-    "My core stack is TypeScript and React, but I work across the full stack — collaborating on API design, data models, and AI-powered features with a frontend lens on usability and clarity. I care about building interfaces that feel intuitive, not just functional.",
-    "I'm drawn to evolving products where the roadmap shifts and the engineering challenges grow with it. I enjoy the full lifecycle — from requirements gathering and technical specification through to shipping and iterating.",
+    "My core stack is TypeScript and React, but I work across the full stack, collaborating on API design, data models, and AI-powered features with a frontend lens on usability and clarity. I care about building interfaces that feel intuitive, not just functional.",
+    "I'm drawn to evolving products where the roadmap shifts and the engineering challenges grow with it. I enjoy the full lifecycle, from requirements gathering and technical specification through to shipping and iterating.",
   ],
   highlights: [
     { value: "BSc Computer Science", label: "Western University" },
     { value: "Prev Co-Founder", label: "Aurelis, Software Development Agency" },
     { value: "25+ Products Built", label: "Scoped and shipped b2b + consumer-facing WebApps, Websites, Mobile Apps" },
   ],
-  projects: [
-    {
-      title: "This Site",
-      description:
-        "A from-scratch developer portfolio built with Next.js App Router and TypeScript strict mode. Features an interactive canvas dot grid with cursor reactivity, scroll-driven parallax animations, and a custom cursor with spring physics. GitHub activity is fetched server-side via Edge API Routes with ISR caching. Developed using agentic coding practices with Claude Code — iterating on architecture, design, and implementation through AI-assisted pair programming.",
-      role: "Design & Development",
-      impact: [
-        "Interactive hero with auto-animating wave pulses and cursor-reactive dot grid",
-        "Edge-runtime API routes with 1-hour ISR revalidation for GitHub data",
-        "Full accessibility support including prefers-reduced-motion and keyboard navigation",
-        "Built end-to-end with Claude Code as an agentic coding partner for rapid iteration",
-      ],
-      tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Edge API Routes", "Claude Code"],
-      featured: true,
-    },
+  paidProjects: [
     {
       title: "Cintrex",
       description:
@@ -77,10 +63,40 @@ export const siteConfig: SiteConfig = {
       tech: ["React Native", "TypeScript", "Node.js", "REST API"],
     },
   ],
+  liveProjects: [
+    {
+      title: "Prism",
+      description:
+        "A web app where you enter a question and an AI agent autonomously explores it, producing a structured knowledge map with synthesis, all visible in real-time. The agent runs four stages: decomposing the question into lenses, exploring concepts per lens in parallel, finding cross-domain connections, and synthesizing key tensions and patterns. The agent's reasoning trace is the UI. Every stage streams in via SSE so you watch it think in real-time, while an interactive React Flow graph builds up as concepts and connections arrive.",
+      role: "Designer & Developer",
+      impact: [
+        "Built a multi-stage AI agent pipeline with real-time SSE streaming and progressive UI rendering",
+        "Interactive knowledge graph with lens-colored nodes, built with React Flow and dagre layout",
+        "Pre-baked explorations stored as static JSON with progressive reveal to simulate the live experience",
+        "Rate-limited to 5 live explorations per IP/day with no database, stateless by design",
+      ],
+      tech: ["TypeScript", "Next.js", "Tailwind CSS", "React Flow", "Vitest", "Claude Code", "Anthropic SDK", "SSE"],
+      demoUrl: "https://prism-nine-ebon.vercel.app/",
+      repoUrl: "https://github.com/dan1el5/prism",
+    },
+    {
+      title: "This Site",
+      description:
+        "A from-scratch developer portfolio built with Next.js App Router and TypeScript strict mode. Features an interactive canvas dot grid with cursor reactivity, scroll-driven parallax animations, and a custom cursor with spring physics. Developed using agentic coding practices with Claude Code, iterating on architecture, design, and implementation through AI-assisted pair programming.",
+      role: "Designer & Developer",
+      impact: [
+        "Interactive hero with auto-animating wave pulses and cursor-reactive dot grid",
+        "Full accessibility support including prefers-reduced-motion and keyboard navigation",
+        "Built end-to-end with Claude Code as an agentic coding partner for rapid iteration",
+      ],
+      tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Claude Code"],
+      repoUrl: "https://github.com/dan1el5/personal-site",
+    },
+  ],
   skills: [
     {
       name: "Frontend",
-      skills: ["TypeScript", "React", "React Native", "Next.js", "Tailwind CSS", "Framer Motion", "HTML/CSS", "Jest", "Figma"],
+      skills: ["TypeScript", "React", "React Native", "Next.js", "Tailwind CSS", "Framer Motion", "HTML/CSS", "Vitest", "Figma"],
     },
     {
       name: "Backend & Data",
@@ -97,6 +113,4 @@ export const siteConfig: SiteConfig = {
       url: "https://github.com/dan1el5",
     },
   ],
-  githubUsername:
-    process.env.GITHUB_USERNAME ?? "dan1el5",
 };

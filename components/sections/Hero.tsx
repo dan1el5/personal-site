@@ -310,7 +310,7 @@ export function Hero() {
           >
             <MagneticButton
               as="a"
-              href="#dev"
+              href="#projects"
               className="group inline-flex items-center gap-3 text-xs tracking-[0.2em] uppercase border border-fg px-6 py-3 hover:bg-fg hover:text-bg transition-colors duration-300"
             >
               See my work

@@ -48,7 +48,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative py-32 md:py-48 overflow-hidden bg-[#f3f3f3]"
+      className="relative pt-20 md:pt-28 pb-32 md:pb-48 overflow-hidden bg-[#f3f3f3]"
     >
       <SectionAccents
         accents={[

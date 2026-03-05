@@ -57,8 +57,7 @@ export function Footer() {
               DG
             </p>
             <p className="text-[10px] tracking-wider text-muted-light">
-              Built with Next.js, TypeScript &amp; Tailwind &mdash; GitHub data
-              via Edge API Routes &amp; ISR
+              Built with Next.js, TypeScript &amp; Tailwind
             </p>
           </div>
         </FadeIn>

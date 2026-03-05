@@ -1,31 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/lib/config";
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Dev", href: "#dev" },
-  { label: "GitHub", href: "#github" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
 ];
 
 export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <>
-      {/* Desktop + closed mobile: blend mode for contrast */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 ${
-          mobileOpen ? "" : "mix-blend-difference"
+        className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
+          mobileOpen ? "bg-fg" : ""
         }`}
       >
-        <nav className="flex items-center justify-between px-6 md:px-12 py-6">
+        {!mobileOpen && (
+          <div className="absolute inset-0 bg-bg/80 backdrop-blur-sm" />
+        )}
+        <nav className="relative flex items-center justify-between px-6 md:px-12 py-6">
           <a
             href="#"
-            className={`text-sm font-medium tracking-wider uppercase ${
-              mobileOpen ? "text-bg" : "text-white"
+            className={`text-sm font-medium tracking-wider uppercase transition-colors duration-300 ${
+              mobileOpen ? "text-bg" : "text-fg"
             }`}
           >
             {siteConfig.name}
@@ -37,10 +44,10 @@ export function Nav() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="group relative text-xs tracking-widest uppercase text-white"
+                  className="group relative text-xs tracking-widest uppercase text-fg"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-fg transition-all duration-300 group-hover:w-full" />
                 </a>
               </li>
             ))}
@@ -49,8 +56,8 @@ export function Nav() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden text-xs tracking-widest uppercase ${
-              mobileOpen ? "text-bg" : "text-white"
+            className={`md:hidden text-xs tracking-widest uppercase transition-colors duration-300 ${
+              mobileOpen ? "text-bg" : "text-fg"
             }`}
             aria-label="Toggle navigation"
           >
@@ -63,39 +70,51 @@ export function Nav() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] as const }}
             className="md:hidden fixed inset-0 z-30 bg-fg"
           >
-            <ul className="flex flex-col items-center justify-center h-full gap-12">
+            <nav className="flex flex-col items-start justify-center h-full px-12 gap-10">
               {navItems.map((item, i) => (
-                <motion.li
+                <motion.div
                   key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: 0.1 + i * 0.05, duration: 0.3 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ delay: 0.15 + i * 0.08, duration: 0.4 }}
+                  className="overflow-hidden"
                 >
                   <a
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl tracking-widest uppercase text-bg font-light"
+                    className="group flex items-center gap-4"
                   >
-                    {item.label}
+                    <span className="text-[10px] tracking-[0.2em] text-bg/30 font-mono">
+                      0{i + 1}
+                    </span>
+                    <span className="text-3xl tracking-[0.15em] uppercase text-bg font-light group-hover:translate-x-2 transition-transform duration-300">
+                      {item.label}
+                    </span>
                   </a>
-                </motion.li>
+                </motion.div>
               ))}
-            </ul>
+            </nav>
 
-            {/* Decorative line at bottom */}
+            {/* Bottom accent */}
             <motion.div
-              className="absolute bottom-12 left-1/2 -translate-x-1/2 w-12 h-px bg-bg/20"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-            />
+              className="absolute bottom-16 left-12 right-12 flex items-center gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+            >
+              <div className="flex-1 h-px bg-bg/10" />
+              <span className="text-[10px] tracking-[0.3em] uppercase text-bg/30">
+                {siteConfig.name}
+              </span>
+              <div className="flex-1 h-px bg-bg/10" />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

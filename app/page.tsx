@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
-import { Dev } from "@/components/sections/Dev";
-import { GitHubActivity } from "@/components/sections/GitHubActivity";
+import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -9,8 +9,8 @@ export default function Home() {
     <main>
       <Hero />
       <About />
-      <Dev />
-      <GitHubActivity />
+      <Projects />
+      <Skills />
       <Footer />
     </main>
   );
