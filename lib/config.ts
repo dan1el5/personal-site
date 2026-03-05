@@ -100,11 +100,11 @@ export const siteConfig: SiteConfig = {
     },
     {
       name: "Backend & Data",
-      skills: ["Node.js", "Express.js", "Python", "Flask", "Java", "C/C++", "REST/JSON", "tRPC", "SQL", "Supabase", "Drizzle ORM", "Clerk"],
+      skills: ["Node.js", "Express.js", "Python", "Java", "C/C++", "REST/JSON", "tRPC", "PostgreSQL", "Drizzle ORM", "Clerk"],
     },
     {
       name: "Infrastructure & Tooling",
-      skills: ["Git", "Claude Code", "Docker", "Kubernetes", "AWS Services", "Vercel/Netlify", "Prometheus", "Grafana", "Postman", "Jira", "Slack"],
+      skills: ["Git", "Claude Code", "Docker", "Kubernetes", "AWS Services", "Vercel", "Prometheus", "Grafana", "Postman", "Jira", "Slack"],
     },
   ],
   socials: [
