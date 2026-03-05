@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "Cintrex",
       description:
-        "An internal operations dashboard for a property management company, built to replace ad-hoc email and spreadsheet workflows. Designed and implemented a work-order ticketing system with structured submission, assignment, and resolution flows tied to clear SLAs. Added role-based access control, access reviews, and a full activity trail for audit traceability. Integrated notification pipelines and reporting views to give cross-functional teams visibility into operational status.",
+        "An operations dashboard for a property management company. Replaced scattered email and spreadsheet workflows with a structured ticketing system, role-based access, audit trails, and real-time reporting.",
       role: "Full Stack Developer",
       impact: [
         "Designed a work-order/ticketing workflow with submission, assignment, and resolution tied to SLAs",
@@ -29,7 +29,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "Fogain",
       description:
-        "An integrated tool suite for an accounting firm that consolidated 7+ previously siloed internal tools into a single shared environment with unified access controls. Built reporting dashboards and a tax-report generator to reduce manual data entry and improve accuracy during filing season. Maintained lightweight FAQs and support documentation to reduce onboarding friction for new users across the firm.",
+        "A unified tool suite for an accounting firm. Consolidated 7+ siloed internal tools into one environment with shared access controls, reporting dashboards, and a tax-report generator.",
       role: "Full Stack Developer",
       impact: [
         "Centralized 7+ internal tools into a shared environment with unified access controls",
@@ -41,7 +41,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "OtomAI",
       description:
-        "A chat-based financial assistant for an accounting firm, powered by OpenAI's API. Designed and built the conversational interface and prompt orchestration layer to automate routine tasks like report generation, data interpretation, and financial summarization. Tailored prompts to domain-specific accounting workflows to improve output accuracy and reduce back-and-forth between users and the system.",
+        "A chat-based financial assistant powered by OpenAI. Natural-language interface for report generation, data interpretation, and financial summarization, tailored to domain-specific accounting workflows.",
       role: "Full Stack Developer",
       impact: [
         "Used OpenAI's API with tailored prompts to automate report generation and data interpretation",
@@ -53,7 +53,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "QueueTrack",
       description:
-        "A React Native mobile app that lets university students check real-time wait times at bars near campus. Users can report and view line lengths, helping them decide where to go on busy nights. Built the full mobile client with live-updating queue data, location-based bar listings, and a simple crowdsourced reporting flow.",
+        "A React Native app for university students to check real-time wait times at nearby bars. Crowdsourced reporting, live queue data, and location-aware listings.",
       role: "Mobile Developer",
       impact: [
         "Built an IOS app with React Native for real-time bar line tracking",
@@ -67,7 +67,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "Prism",
       description:
-        "A web app where you enter a question and an AI agent autonomously explores it, producing a structured knowledge map with synthesis, all visible in real-time. The agent runs four stages: decomposing the question into lenses, exploring concepts per lens in parallel, finding cross-domain connections, and synthesizing key tensions and patterns. The agent's reasoning trace is the UI. Every stage streams in via SSE so you watch it think in real-time, while an interactive React Flow graph builds up as concepts and connections arrive.",
+        "Enter a question and watch an AI agent explore it in real-time. The agent decomposes, researches, connects, and synthesizes, streaming its reasoning as an interactive knowledge graph you can see being built.",
       role: "Designer & Developer",
       impact: [
         "Built a multi-stage AI agent pipeline with real-time SSE streaming and progressive UI rendering",
@@ -82,7 +82,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "This Site",
       description:
-        "A from-scratch developer portfolio built with Next.js App Router and TypeScript strict mode. Features an interactive canvas dot grid with cursor reactivity, scroll-driven parallax animations, and a custom cursor with spring physics. Developed using agentic coding practices with Claude Code, iterating on architecture, design, and implementation through AI-assisted pair programming.",
+        "The site you're on. Built from scratch with Next.js, featuring an interactive dot grid, scroll-driven parallax, spring-physics cursor, and full accessibility support.",
       role: "Designer & Developer",
       impact: [
         "Interactive hero with auto-animating wave pulses and cursor-reactive dot grid",

@@ -27,15 +27,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.description}
         </p>
 
-        <ul className="space-y-2 mb-6">
-          {project.impact.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-xs text-muted">
-              <span className="w-1 h-1 rounded-full bg-fg mt-1.5 shrink-0" />
-              <span className="leading-relaxed">{item}</span>
-            </li>
-          ))}
-        </ul>
-
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tech.map((tech) => (
             <Badge key={tech}>{tech}</Badge>
