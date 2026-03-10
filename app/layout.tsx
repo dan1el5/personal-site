@@ -14,22 +14,22 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dan Gomes",
-  description: `Portfolio of ${siteConfig.name}, ${siteConfig.role}. TypeScript, React, and Next.js. Building polished, scalable products across web and mobile.`,
+  title: `${siteConfig.fullName} | ${siteConfig.role}`,
+  description: "Design & Development Portfolio. Building polished, scalable products across web and mobile.",
   metadataBase: new URL("https://thedangomes.com"),
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: `Portfolio of ${siteConfig.name}, ${siteConfig.role}. TypeScript, React, and Next.js. Building polished, scalable products across web and mobile.`,
+    title: `${siteConfig.fullName} | ${siteConfig.role}`,
+    description: "Design & Development Portfolio. Building polished, scalable products across web and mobile.",
     url: "https://thedangomes.com",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: `Portfolio of ${siteConfig.name}, ${siteConfig.role}. TypeScript, React, and Next.js. Building polished, scalable products across web and mobile.`,
+    title: `${siteConfig.fullName} | ${siteConfig.role}`,
+    description: "Design & Development Portfolio. Building polished, scalable products across web and mobile.",
   },
 };
 

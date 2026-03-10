@@ -25,6 +25,7 @@ export interface Highlight {
 
 export interface SiteConfig {
   name: string;
+  fullName: string;
   role: string;
   bio: string[];
   highlights: Highlight[];
