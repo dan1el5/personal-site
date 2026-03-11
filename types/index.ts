@@ -2,7 +2,6 @@ export interface Project {
   title: string;
   description: string;
   role: string;
-  impact: string[];
   tech: string[];
   demoUrl?: string;
   repoUrl?: string;

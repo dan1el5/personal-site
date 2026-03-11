@@ -20,11 +20,6 @@ export const siteConfig: SiteConfig = {
       description:
         "An operations dashboard for a property management company. Replaced scattered email and spreadsheet workflows with a structured ticketing system, role-based access, audit trails, and real-time reporting.",
       role: "CRM",
-      impact: [
-        "Designed a work-order/ticketing workflow with submission, assignment, and resolution tied to SLAs",
-        "Implemented RBAC, access reviews, and an activity trail to improve traceability and compliance",
-        "Integrated notifications and reporting to streamline cross-team coordination",
-      ],
       tech: ["TypeScript", "React", "Node.js", "REST API", "PostgreSQL"],
     },
     {
@@ -32,11 +27,6 @@ export const siteConfig: SiteConfig = {
       description:
         "A unified tool suite for an accounting firm. Consolidated 7+ siloed internal tools into one environment with shared access controls, reporting dashboards, and a tax-report generator.",
       role: "CRM",
-      impact: [
-        "Centralized 7+ internal tools into a shared environment with unified access controls",
-        "Built reporting dashboards and a tax-report generator to reduce manual workflows",
-        "Maintained lightweight FAQs and support notes to streamline user onboarding",
-      ],
       tech: ["TypeScript", "React", "Node.js", "REST API", "Tailwind CSS"],
     },
     {
@@ -44,11 +34,6 @@ export const siteConfig: SiteConfig = {
       description:
         "A chat-based financial assistant powered by OpenAI. Natural-language interface for report generation, data interpretation, and financial summarization, tailored to domain-specific accounting workflows.",
       role: "LLM Interface",
-      impact: [
-        "Used OpenAI's API with tailored prompts to automate report generation and data interpretation",
-        "Built a conversational UI for natural-language interaction with financial data",
-        "Reduced manual effort on routine accounting tasks through prompt-driven automation",
-      ],
       tech: ["TypeScript", "React", "OpenAI API", "Node.js", "Tailwind CSS"],
     },
     {
@@ -56,11 +41,6 @@ export const siteConfig: SiteConfig = {
       description:
         "A React Native app for university students to check real-time wait times at nearby bars. Crowdsourced reporting, live queue data, and location-aware listings.",
       role: "Mobile App",
-      impact: [
-        "Built an IOS app with React Native for real-time bar line tracking",
-        "Implemented crowdsourced reporting so users could share and view live wait times",
-        "Designed a location-aware UI for browsing nearby bars and their current queue status",
-      ],
       tech: ["React Native", "TypeScript", "Node.js", "REST API"],
     },
   ],
@@ -69,27 +49,25 @@ export const siteConfig: SiteConfig = {
       title: "Prism",
       description:
         "Enter a question and watch an AI agent explore it in real-time. The agent decomposes, researches, connects, and synthesizes, streaming its reasoning as an interactive knowledge graph you can see being built.",
-      role: "Agentic Visualization",
-      impact: [
-        "Built a multi-stage AI agent pipeline with real-time SSE streaming and progressive UI rendering",
-        "Interactive knowledge graph with lens-colored nodes, built with React Flow and dagre layout",
-        "Pre-baked explorations stored as static JSON with progressive reveal to simulate the live experience",
-        "Rate-limited to 5 live explorations per IP/day with no database, stateless by design",
-      ],
+      role: "Agentic Knowledge Visualization",
       tech: ["TypeScript", "Next.js", "Tailwind CSS", "React Flow", "Vitest", "Claude Code", "Anthropic SDK", "SSE"],
       demoUrl: "https://prism-nine-ebon.vercel.app/",
       repoUrl: "https://github.com/dan1el5/prism",
+    },
+    {
+      title: "Sentinel",
+      description:
+        "Real-time seismic event monitoring dashboard that ingests live earthquake data from the USGS API. A Python FastAPI backend normalizes and caches upstream data, exposing it via both REST and GraphQL endpoints. The React frontend renders events on an interactive 3D Mapbox globe with severity-based filtering, detailed event analysis, and a tactical command center UI.",
+      role: "Geospatial Command Center",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Mapbox GL JS", "Python", "FastAPI", "Strawberry GraphQL", "Claude Code", "Vercel", "Render"],
+      demoUrl: "https://sentinel-six-kappa.vercel.app/",
+      repoUrl: "https://github.com/dan1el5/sentinel",
     },
     {
       title: "This Site",
       description:
         "The site you're on. Built from scratch with Next.js, featuring an interactive dot grid, scroll-driven parallax, spring-physics cursor, and full accessibility support.",
       role: "Design & Development",
-      impact: [
-        "Interactive hero with auto-animating wave pulses and cursor-reactive dot grid",
-        "Full accessibility support including prefers-reduced-motion and keyboard navigation",
-        "Built end-to-end with Claude Code as an agentic coding partner for rapid iteration",
-      ],
       tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Claude Code"],
       repoUrl: "https://github.com/dan1el5/personal-site",
     },
