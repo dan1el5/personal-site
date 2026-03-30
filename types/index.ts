@@ -28,7 +28,6 @@ export interface SiteConfig {
   role: string;
   bio: string[];
   highlights: Highlight[];
-  paidProjects: Project[];
   liveProjects: Project[];
   skills: SkillCategory[];
   socials: SocialLink[];

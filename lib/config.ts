@@ -3,46 +3,16 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "<DG/>",
   fullName: "DG",
-  role: "Product Designer & Full Stack Developer",
+  role: "Product Designer & Full Stack Engineer",
   bio: [
-    "I'm a frontend-leaning full-stack developer based in Toronto who thrives in fast-moving, collaborative environments. I partner closely with designers, product managers, and backend engineers to turn ambiguous requirements into polished, scalable products across web and mobile.",
-    "My core stack is TypeScript and React, but I work across the full stack, collaborating on API design, data models, and AI-powered features with a frontend lens on usability and clarity. I care about building interfaces that feel intuitive, not just functional.",
-    "I'm drawn to evolving products where the roadmap shifts and the engineering challenges grow with it. I enjoy the full lifecycle, from requirements gathering and technical specification through to shipping and iterating.",
+    "Product engineer based in Toronto. I work across the entire stack and design process, from early concepts and user flows through to APIs, infrastructure, and production deployment.",
+    "I care about building products that are well-designed and well-engineered. That means thoughtful interfaces backed by clean architecture, not one at the expense of the other.",
+    "I thrive in collaborative, fast-moving environments where the roadmap evolves and the problems get harder. I enjoy owning the full lifecycle, from requirements and technical spec through to shipping and iterating on design and functionality.",
   ],
   highlights: [
     { value: "BSc Computer Science", label: "Western University" },
     { value: "Prev Co-Founder", label: "Aurelis, Software Development Agency" },
     { value: "25+ Products Built", label: "Scoped and shipped b2b + consumer-facing WebApps, Websites, Mobile Apps" },
-  ],
-  paidProjects: [
-    {
-      title: "Cintrex",
-      description:
-        "An operations dashboard for a property management company. Replaced scattered email and spreadsheet workflows with a structured ticketing system, role-based access, audit trails, and real-time reporting.",
-      role: "CRM",
-      tech: ["TypeScript", "React", "Node.js", "REST API", "PostgreSQL"],
-    },
-    {
-      title: "Fogain",
-      description:
-        "A unified tool suite for an accounting firm. Consolidated 7+ siloed internal tools into one environment with shared access controls, reporting dashboards, and a tax-report generator.",
-      role: "CRM",
-      tech: ["TypeScript", "React", "Node.js", "REST API", "Tailwind CSS"],
-    },
-    {
-      title: "OtomAI",
-      description:
-        "A chat-based financial assistant powered by OpenAI. Natural-language interface for report generation, data interpretation, and financial summarization, tailored to domain-specific accounting workflows.",
-      role: "LLM Interface",
-      tech: ["TypeScript", "React", "OpenAI API", "Node.js", "Tailwind CSS"],
-    },
-    {
-      title: "QueueTrack",
-      description:
-        "A React Native app for university students to check real-time wait times at nearby bars. Crowdsourced reporting, live queue data, and location-aware listings.",
-      role: "Mobile App",
-      tech: ["React Native", "TypeScript", "Node.js", "REST API"],
-    },
   ],
   liveProjects: [
     {
@@ -55,9 +25,18 @@ export const siteConfig: SiteConfig = {
       repoUrl: "https://github.com/dan1el5/prism",
     },
     {
+      title: "Vortera",
+      description:
+        "Interactive, seed-based generative mandala art. Creates visualizations using radial symmetry, particle systems, flow fields, and sacred geometry. Every piece is deterministic from its seed, and every parameter is tunable in real time.",
+      role: "Generative Art",
+      tech: ["TypeScript", "Next.js", "React", "p5.js", "Tailwind CSS"],
+      demoUrl: "https://vortera.vercel.app/",
+      repoUrl: "https://github.com/dan1el5/vortera",
+    },
+    {
       title: "Sentinel",
       description:
-        "Real-time seismic event monitoring dashboard that ingests live earthquake data from the USGS API. A Python FastAPI backend normalizes and caches upstream data, exposing it via both REST and GraphQL endpoints. The React frontend renders events on an interactive 3D Mapbox globe with severity-based filtering, detailed event analysis, and a tactical command center UI.",
+        "Real-time seismic event monitoring dashboard powered by USGS earthquake data. Events render on an interactive 3D Mapbox globe with severity-based filtering, detailed analysis, and a tactical command center UI.",
       role: "Geospatial Command Center",
       tech: ["React", "TypeScript", "Tailwind CSS", "Mapbox GL JS", "Python", "FastAPI", "Strawberry GraphQL", "Claude Code", "Vercel", "Render"],
       demoUrl: "https://sentinel-six-kappa.vercel.app/",
@@ -79,7 +58,7 @@ export const siteConfig: SiteConfig = {
     },
     {
       name: "Backend & Data",
-      skills: ["Node.js", "Express.js", "Python", "Java", "C/C++", "REST/JSON", "tRPC", "PostgreSQL", "Drizzle ORM", "Clerk"],
+      skills: ["Node.js", "Python", "Java", "C/C++", "REST/JSON", "tRPC", "PostgreSQL", "Drizzle ORM", "Clerk"],
     },
     {
       name: "Infrastructure & Tooling",

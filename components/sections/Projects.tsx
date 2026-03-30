@@ -98,31 +98,12 @@ export function Projects() {
       <Container className="relative">
         <SectionHeading label="02" title="Projects" />
 
-        <FadeIn>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-muted mb-8">
-            Live Projects
-          </p>
-        </FadeIn>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {siteConfig.liveProjects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
         </div>
 
-        <div className="mt-24 md:mt-32">
-          <FadeIn>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-muted mb-8">
-              Client Projects - Code Private
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {siteConfig.paidProjects.map((project, i) => (
-              <ProjectCard key={project.title} project={project} index={i} />
-            ))}
-          </div>
-        </div>
       </Container>
     </section>
   );
